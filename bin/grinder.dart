@@ -20,6 +20,7 @@ void main(List<String> args) {
   Process.start(Platform.resolvedExecutable, newArgs).then((Process process) {
     stdout.addStream(process.stdout);
     stderr.addStream(process.stderr);
+    process.stdin.addStream(stdin);
     return process.exitCode.then((int code) => exit(code));
   });
 }
